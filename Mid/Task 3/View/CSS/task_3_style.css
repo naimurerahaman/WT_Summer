@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #ccc7c7;
+}
+
+.form-container {
+  width: 700px;
+  margin: 20px auto;
+  background: rgb(255, 255, 255);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(8, 8, 8);
+}
+
+.donor-info {
+    color: red;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select,
+
+textarea {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 6px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.section-title {
+  color: red;
+}
