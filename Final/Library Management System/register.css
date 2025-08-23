@@ -84,7 +84,7 @@ body {
   z-index: 1000;
   width: 77px;  
   overflow: hidden;
-  background-color: #333;
+  background-color: #1f1f1f;
 }
 
 .navbar a {
