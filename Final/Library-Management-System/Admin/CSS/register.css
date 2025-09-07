@@ -11,7 +11,7 @@ body {
 .register-container {
   max-width: 450px;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -46,7 +46,7 @@ body {
 .register-form input {
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid #b6b6b6;
   border-radius: 4px;
 }
 
@@ -97,4 +97,19 @@ body {
 .navbar a:hover {
     background-color: #e67e22; 
     color: white;
+}
+.success, .error {
+    margin-top: 5px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.success {
+    color: #155724;
+}
+
+.error {
+    color: #ff0019;
 }

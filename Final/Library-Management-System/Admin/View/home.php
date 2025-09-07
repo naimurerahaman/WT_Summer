@@ -22,7 +22,7 @@
      <a href="#section-about">About</a>
      <a href="book.php">Books</a>
      <a href="category.php">Category</a>
-     <a href="#section-request">Request Book</a>
+     
    </nav>  
  
    <div class="hero">
@@ -93,7 +93,6 @@
          <ul>
            <li><a href="#section-about">About Us</a></li>
            <li><a href="#section-book">Books</a></li>
-           <li><a href="requestBook.php">Request a book</a></li>
            <li><a href="category.php">Categories</a></li>
          </ul>
        </div>

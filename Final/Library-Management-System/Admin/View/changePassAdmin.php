@@ -1,23 +1,42 @@
 <?php
 session_start();
+include "config.php";  
 
-$oldPassword = "123";
 $message = "";
+
+$adminEmail = "admin@example.com";
+
+// ✅ Check if admin exists in DB
+$sql = "SELECT * FROM adminpass WHERE email='$adminEmail' LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    $adminData = $result->fetch_assoc();
+    $oldPassword = $adminData['password'];
+} else {
+    $oldPassword = null; // if no row found
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $current = $_POST["current_password"];
     $new = $_POST["new_password"];
     $confirm = $_POST["confirm_password"];
 
-    if ($current !== $oldPassword) {
+    if ($oldPassword === null) {
+        $_SESSION['msg'] = "Admin account not found in database!";
+    } elseif ($current !== $oldPassword) {
         $_SESSION['msg'] = "Current password is wrong!";
     } elseif ($new !== $confirm) {
         $_SESSION['msg'] = "New password and Confirm password do not match!";
     } elseif (empty($new)) {
         $_SESSION['msg'] = "New password cannot be empty!";
     } else {
-        $oldPassword = $new;
-        $_SESSION['msg'] = "Password changed successfully!";
+        $update = "UPDATE adminpass SET password='$new' WHERE email='$adminEmail'";
+        if ($conn->query($update) === TRUE) {
+            $_SESSION['msg'] = "Password changed successfully!";
+        } else {
+            $_SESSION['msg'] = "Error updating password: " . $conn->error;
+        }
     }
 
     header("Location: changePassAdmin.php");
@@ -29,7 +48,6 @@ if (isset($_SESSION['msg'])) {
     unset($_SESSION['msg']); 
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
